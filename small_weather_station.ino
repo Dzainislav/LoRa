@@ -16,19 +16,19 @@
  * Modified for Hello, LoRa!, 24. 6. 2022
  *******************************************************************************/
 
-#include <lmic.h>
+#include <lmic.h>   //library used for LoRa frequency channels set up
 #include <hal/hal.h>
 #include <SPI.h>
 
 
 //--------------------------------------- Here change your keys -------------------------------------------------
-
+//in TTS click on the "toggle array formating" button -> swithc byte order to "lsb" -> click on the "Coppy to clipboard" button -> paste it between the brackets
 static const u1_t PROGMEM APPEUI[8]={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };   // AppEUI, LSB
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}                        
-
+//in TTS click on the "toggle array formating" button -> swithc byte order to "lsb" -> click on the "Coppy to clipboard" button -> paste it between the brackets
 static const u1_t PROGMEM DEVEUI[8]={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };   // DevEUI, LSB
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
-
+//in TTS click on the "toggle array formating" button -> swithc byte order to "msb" -> click on the "Coppy to clipboard" button -> paste it between the brackets
 static const u1_t PROGMEM APPKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };  // AppKey, MSB
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
@@ -57,7 +57,7 @@ void printHex2(unsigned v) {
     Serial.print(v, HEX);
 }
 
-void onEvent (ev_t ev) {
+void onEvent (ev_t ev) {        //event branching for some occasions, is used for calling different functions
     Serial.print(os_getTime());
     Serial.print(": ");
     switch(ev) {
@@ -168,7 +168,7 @@ void do_send(osjob_t* j){
 }
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(9600);     //setup serial communication
     Serial.println(F("Starting"));
 
     os_init();
