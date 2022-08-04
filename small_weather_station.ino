@@ -71,10 +71,10 @@ static osjob_t measurejob, sendjob;
 static const u1_t PROGMEM APPEUI[8]={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };   // AppEUI, LSB
 void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}                        
 //in TTS click on the "toggle array formating" button -> swithc byte order to "lsb" -> click on the "Coppy to clipboard" button -> paste it between the brackets
-static const u1_t PROGMEM DEVEUI[8]={ 0x18, 0x31, 0x05, 0xD0, 0x7E, 0xD5, 0xB3, 0x70 };   // DevEUI, LSB
+static const u1_t PROGMEM DEVEUI[8]={ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };   // DevEUI, LSB
 void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
 //in TTS click on the "toggle array formating" button -> swithc byte order to "msb" -> click on the "Coppy to clipboard" button -> paste it between the brackets
-static const u1_t PROGMEM APPKEY[16] = { 0xB9, 0xD9, 0xC7, 0xAF, 0x32, 0xC8, 0x58, 0x4A, 0x76, 0xBF, 0x53, 0x8A, 0x13, 0x7C, 0xFF, 0x6E };  // AppKey, MSB
+static const u1_t PROGMEM APPKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };  // AppKey, MSB
 void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
 
 //---------------------------------------------------------------------------------------------------------------
